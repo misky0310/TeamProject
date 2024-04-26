@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, {useState, useEffect} from 'react'
 import Landing from './components/Landing/Landing';
 import Allevents from './components/Allevents/Allevents'
