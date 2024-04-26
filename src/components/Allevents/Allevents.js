@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import './Allevents.css'; 
 import axios from 'axios'; 
 import Nav from '../Nav/Nav';

@@ -26,7 +26,6 @@ const Profile = () => {
         const response = await axios.get(`http://localhost:8800/users/${userId}`);
         console.log("User:", response.data.user);
         setUserData(response.data.user);
-        setLoggedIn(['true']);
       } catch (error) {
         console.error('Error fetching friend requests:', error);
       }
