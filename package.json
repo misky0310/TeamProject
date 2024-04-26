@@ -34,10 +34,24 @@
       "@babel/plugin-proposal-private-property-in-object": "^7.10.3"
   },
   "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true,
+      "es2021": true,
+      "jest": true,
+      "es6": true,
+      "commonjs": true,
+      "amd": true
+    },
     "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "no-unused-vars": "off"
+    }
   },
   "browserslist": {
     "production": [
