@@ -1,8 +1,6 @@
 import {useState, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faClock, faUserFriends, faPlus, faBars, faSearch, faBell, faUserCircle, faCog, faTimes } from '@fortawesome/free-solid-svg-icons';
 import './Allevents.css'; 
-import { useHistory } from 'react-router-dom';
 import axios from 'axios'; 
 import Nav from '../Nav/Nav';
 import Cookies from 'js-cookie';
@@ -37,6 +35,7 @@ const Allevents = () => {
       const response = await axios.post(`http://localhost:8800/events/accept/${userId}`, e);
       
       console.log("accept button clicked ", e._id);
+      console.log(response);
       alert('Event Accepted');
     }catch(error){
       console.log(error);
@@ -53,6 +52,7 @@ const Allevents = () => {
     try{
       const response = await axios.delete(`http://localhost:8800/events/delete/${e._id}`);
       console.log("decline button clicked ", e._id);
+      console.log(response);
       alert('Event Declined');
     }catch(error){
       console.log(error);

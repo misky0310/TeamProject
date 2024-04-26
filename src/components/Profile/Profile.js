@@ -14,7 +14,7 @@ const Profile = () => {
   const [userData, setUserData] = useState(null);
   const [showModal, setShowModal] = useState(false); 
   const history = useHistory();
-  const [loggedIn, setLoggedIn] = useState([]);
+  console.log(history);
 
   useEffect(() => {
     const Logged = async () => {
@@ -26,6 +26,7 @@ const Profile = () => {
         const response = await axios.get(`http://localhost:8800/users/${userId}`);
         console.log("User:", response.data.user);
         setUserData(response.data.user);
+        setLoggedIn(['true']);
       } catch (error) {
         console.error('Error fetching friend requests:', error);
       }
@@ -66,7 +67,7 @@ const Profile = () => {
 
         </div>
       </div>
-      {showModal && <Edit handleClose={handleCloseModal} userId={loggedIn}/>} 
+      {showModal && <Edit handleClose={handleCloseModal} userId={userData}/>} 
     </div>
   );
 };

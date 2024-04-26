@@ -6,7 +6,7 @@ import Allevents from './components/Allevents/Allevents'
 import Createevents from './components/Createevents/Createevents'
 import Friends from './components/Friends/Friends'
 import Signup from './components/Signup/Signup'
-import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Profile from './components/Profile/Profile'
 import Home from './components/Home/Home'
 import PrivateRoute from "./PrivateRoute";
@@ -16,9 +16,8 @@ import { jwtDecode } from "jwt-decode";
 
 
 const App = () => {
-  const [loggedIn, setLoggedIn] = useState([]);
   const [login, setLogin] = useState(false);
-
+  console.log(login);
   useEffect(() => {
     const Logged = async () => {
       try {

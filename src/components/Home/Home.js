@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faClock, faUserFriends, faPlus, faBars, faSearch, faBell, faUserCircle, faCog, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { useHistory } from 'react-router-dom';
 import Nav from "../Nav/Nav";
 import Cookies from 'js-cookie';
 import { jwtDecode } from "jwt-decode";
@@ -12,6 +10,7 @@ import { Tilt } from 'react-tilt'
 
 const Home = () => {
   const [loggedIn, setLoggedIn] = useState([]);
+  console.log(loggedIn);
   const [events, setEvents] = useState([]);
   const [trend, setTrend] = useState([]);
   const [showDialog, setShowDialog] = useState(false);
@@ -75,6 +74,7 @@ const Home = () => {
       const userId = decodedToken.id;
       const response = await axios.post(`http://localhost:8800/events/accept/${userId}`, event);
       console.log("accept button clicked ", event._id);
+      console.log(response);
       alert('Event Accepted');
     } catch (error) {
       console.error('Error accepting event:', error);
@@ -93,10 +93,6 @@ const Home = () => {
     }
   };
 
-  const handleCloseDialog = () => {
-    setShowDialog(false);
-    setUser(null);
-  };
 
   const handleContact = (username) => {
     axios.get(`http://localhost:8800/users/search/${username}`)

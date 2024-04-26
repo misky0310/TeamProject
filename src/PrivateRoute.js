@@ -9,7 +9,7 @@ const PrivateRoute = ({ path, exact }) => {
   const token = Cookies.get('token');
   const history = useHistory();
   const [admin, setAdmin] = useState(false);
-
+  console.log(admin);
   const verifyAdmin = async () => {
     try {
       const response = await fetch('http://localhost:8800/admin/checkAdmin', {

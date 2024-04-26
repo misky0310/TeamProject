@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faClock, faUserFriends, faPlus, faBars, faSearch, faBell, faUserCircle, faCog, faTimes } from '@fortawesome/free-solid-svg-icons';
 import './Friends.css'; 
 import { useHistory } from 'react-router-dom';
 import axios from "axios";
@@ -10,6 +9,7 @@ import { jwtDecode } from "jwt-decode";
 
 const Friends = () => {
   const history = useHistory();
+  console.log(history);
   const [friendRequests, setFriendRequests] = useState([]);
   const [friends, setFriends] = useState([]);
 
@@ -40,7 +40,7 @@ const Friends = () => {
       const decodedToken = jwtDecode(token);
       const userId = decodedToken.id;
       const response = await axios.delete(`http://localhost:8800/users/${userId}/requests/${request}`);
-      
+      console.log(response);
       window.location.reload();
     }catch(error){
       console.log(error);
@@ -52,6 +52,7 @@ const Friends = () => {
       const decodedToken = jwtDecode(token);
       const userId = decodedToken.id;
         const response = await axios.delete(`http://localhost:8800/users/${userId}/requests/${request}`);
+        console.log(response);
         window.location.reload();
         
       }catch(error){
@@ -59,10 +60,10 @@ const Friends = () => {
       }
       try{
         const token = Cookies.get('token');
-      const decodedToken = jwtDecode(token);
-      const userId = decodedToken.id;
+        const decodedToken = jwtDecode(token);
+        const userId = decodedToken.id;
         const response = await axios.put(`http://localhost:8800/users/${userId}/requests/${request}`);
-        
+        console.log(response);
         
       }catch(error){
         console.log(error);

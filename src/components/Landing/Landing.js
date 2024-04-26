@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './Landing.css';
 import Cookies from 'js-cookie';
-import { jwtDecode } from "jwt-decode";
+
 
 const Landing = () => {
   const [formData, setFormData] = useState({
